@@ -9,7 +9,7 @@
 - ボイスチャンネルのメンバーを自動取得
 - 各メンバーに付与されたAPEXランクロールを読み取り
 - ランクスコアをもとにチーム間の強さが均等になるよう自動振り分け
-- チーム数はコマンドで自由に指定可能（2〜10チーム）
+- チーム数はコマンドで自由に指定可能（2〜20チーム）
 
 ---
 
@@ -108,15 +108,16 @@ Botはメンバーに付与された**ロール名**からAPEXランクを判定
 | ティア | ロール名 |
 |---|---|
 | 🔰 Rookie | `Rookie` |
-| 🥉 Bronze | `Bronze IV` `Bronze III` `Bronze II` `Bronze I` |
-| 🥈 Silver | `Silver IV` `Silver III` `Silver II` `Silver I` |
-| 🥇 Gold | `Gold IV` `Gold III` `Gold II` `Gold I` |
-| 🔷 Platinum | `Platinum IV` `Platinum III` `Platinum II` `Platinum I` |
-| 💎 Diamond | `Diamond IV` `Diamond III` `Diamond II` `Diamond I` |
+| 🥉 Bronze | `Bronze IV` `Bronze III` `Bronze II` `Bronze I` または `Bronze` |
+| 🥈 Silver | `Silver IV` `Silver III` `Silver II` `Silver I` または `Silver` |
+| 🥇 Gold | `Gold IV` `Gold III` `Gold II` `Gold I` または `Gold` |
+| 🔷 Platinum | `Platinum IV` `Platinum III` `Platinum II` `Platinum I` または `Platinum` |
+| 💎 Diamond | `Diamond IV` `Diamond III` `Diamond II` `Diamond I` または `Diamond` |
 | 👑 Master | `Master` |
 | 🦅 Predator | `Predator` |
 
 > ロール名の大文字・小文字は区別しません（`gold i` でも `Gold I` でも動作します）。
+> サブランク（IV〜I）なしのロール名（`Bronze` など）も使用できます。その場合はティア内の平均スコアが使用されます。
 > メンバーに複数のランクロールが付与されている場合は、最も高いランクが使用されます。
 > ランクロールが付与されていないメンバーは **Rookie** として計算されます。
 
@@ -130,7 +131,7 @@ Botはメンバーに付与された**ロール名**からAPEXランクを判定
 
 | オプション | 型 | 必須 | デフォルト | 説明 |
 |---|---|---|---|---|
-| `num_teams` | 整数 | いいえ | `2` | チーム数（2〜10） |
+| `num_teams` | 整数 | いいえ | `2` | チーム数（2〜20） |
 
 **使用例**
 
