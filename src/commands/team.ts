@@ -14,15 +14,17 @@ export const data = new SlashCommandBuilder()
   .addIntegerOption((opt) =>
     opt
       .setName("num_teams")
-      .setDescription("チーム数（2〜10）")
+      .setDescription("チーム数（2〜20）")
       .setMinValue(2)
-      .setMaxValue(10)
+      .setMaxValue(20)
       .setRequired(false)
   );
 
 const TEAM_COLORS = [
   0xff4444, 0x44aaff, 0x44ff88, 0xffaa44, 0xff44ff,
   0x44ffff, 0xffff44, 0xff8844, 0x8844ff, 0x44ff44,
+  0xff6699, 0x6699ff, 0x99ff66, 0xff9966, 0xcc44ff,
+  0x44ffcc, 0xffcc44, 0xff4499, 0x4499ff, 0x99ff44,
 ] as const;
 
 export async function execute(interaction: ChatInputCommandInteraction): Promise<void> {
