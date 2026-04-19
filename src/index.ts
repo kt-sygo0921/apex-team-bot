@@ -6,6 +6,7 @@ import {
   GatewayIntentBits,
   ChatInputCommandInteraction,
   SlashCommandBuilder,
+  SlashCommandOptionsOnlyBuilder,
   REST,
   Routes,
 } from "discord.js";
@@ -15,7 +16,7 @@ import * as rankcheckCommand from "./commands/rankcheck.js";
 import * as ranksCommand from "./commands/ranks.js";
 
 interface Command {
-  data: SlashCommandBuilder;
+  data: SlashCommandBuilder | SlashCommandOptionsOnlyBuilder;
   execute: (interaction: ChatInputCommandInteraction) => Promise<void>;
 }
 
