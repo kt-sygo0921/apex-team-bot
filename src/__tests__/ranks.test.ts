@@ -21,8 +21,8 @@ describe('getRankEmoji', () => {
 });
 
 describe('APEX_RANKS', () => {
-  it('23個のランクエントリを持つ', () => {
-    expect(Object.keys(APEX_RANKS)).toHaveLength(23);
+  it('28個のランクエントリを持つ', () => {
+    expect(Object.keys(APEX_RANKS)).toHaveLength(28);
   });
 
   it('全てのキーが小文字である', () => {
@@ -60,6 +60,14 @@ describe('APEX_RANKS', () => {
     expect(APEX_RANKS['diamond iv'].score).toBeGreaterThan(APEX_RANKS['platinum i'].score);
     expect(APEX_RANKS['master'].score).toBeGreaterThan(APEX_RANKS['diamond i'].score);
     expect(APEX_RANKS['predator'].score).toBeGreaterThan(APEX_RANKS['master'].score);
+  });
+
+  it('ティア名のみのキー（"bronze"等）が平均スコアを持つ', () => {
+    expect(APEX_RANKS['bronze'].score).toBe(238);
+    expect(APEX_RANKS['silver'].score).toBe(338);
+    expect(APEX_RANKS['gold'].score).toBe(438);
+    expect(APEX_RANKS['platinum'].score).toBe(538);
+    expect(APEX_RANKS['diamond'].score).toBe(638);
   });
 
   it('各エントリに score / display / tier フィールドを持つ', () => {

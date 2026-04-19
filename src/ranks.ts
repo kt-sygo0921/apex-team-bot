@@ -28,6 +28,11 @@ export const APEX_RANKS: Record<string, RankInfo> = {
   "diamond i":    { score: 675,  display: "Diamond I",    tier: "diamond" },
   "master":       { score: 800,  display: "Master",       tier: "master" },
   "predator":     { score: 1000, display: "Predator",     tier: "predator" },
+  "bronze":       { score: 238,  display: "Bronze",       tier: "bronze" },
+  "silver":       { score: 338,  display: "Silver",       tier: "silver" },
+  "gold":         { score: 438,  display: "Gold",         tier: "gold" },
+  "platinum":     { score: 538,  display: "Platinum",     tier: "platinum" },
+  "diamond":      { score: 638,  display: "Diamond",      tier: "diamond" },
 };
 
 export const RANK_TIERS: { name: string; emoji: string; roles: string[] }[] = [
