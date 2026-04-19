@@ -40,9 +40,19 @@ export function getMemberRank(member: GuildMember): Player {
   };
 }
 
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 export function balanceTeams(players: Player[], numTeams: number): Player[][] {
-  // スコア降順でソート
-  const sorted = [...players].sort((a, b) => b.score - a.score);
+  // 同スコアのプレイヤーをシャッフルしてからスコア降順でソート（毎回異なる結果になる）
+  const shuffled = shuffleArray(players);
+  const sorted = shuffled.sort((a, b) => b.score - a.score);
 
   const teams: Player[][] = Array.from({ length: numTeams }, () => []);
   const teamScores = new Array<number>(numTeams).fill(0);
